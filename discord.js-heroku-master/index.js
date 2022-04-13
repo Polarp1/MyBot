@@ -14,6 +14,13 @@ client.on("message", msg => {
 })
 
 
+client.on('message', msg => {
+      msg.reply("Bzzt bzzt (you hear static)")
+}
+          })
+    
+
+
 
 
 

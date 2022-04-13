@@ -6,12 +6,15 @@ client.on('ready', () => {
     client.user.setActivity('https://git.io/d.js-heroku', {type: 'WATCHING'});
 });
 
-client.on('message', msg => {
-    if (!msg.content.startsWith(process.env.PREFIX) || !msg.guild) return;
-    const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
-    const args = msg.content.split(' ').slice(1).join(' ');
-    if (command === 'guide') return msg.channel.send('https://git.io/d.js-heroku');
-    else if (command === 'invite') return msg.channel.send(process.env.INVITE);
+bot.on("message", function (msg) {
+	// if message begins with "ping"
+	if (msg.content.indexOf("ping") === 0) {
+		// send a message to the channel the ping message was sent in.
+		bot.sendMessage(msg.channel, "pong!");
+
+		// alert the console
+		console.log("pong-ed " + msg.author.username);
+	}
 });
 
 client.login(process.env.TOKEN);
